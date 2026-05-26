@@ -185,11 +185,6 @@ class cmake_build_ext(build_ext):
         fc_base_dir = os.environ.get("FETCHCONTENT_BASE_DIR", fc_base_dir)
         cmake_args += ['-DFETCHCONTENT_BASE_DIR={}'.format(fc_base_dir)]
 
-        # Use local cutlass if specified (avoids git clone from GitHub)
-        cutlass_src_dir = os.environ.get("VLLM_CUTLASS_SRC_DIR")
-        if cutlass_src_dir:
-            cmake_args += [f'-DVLLM_CUTLASS_SRC_DIR={cutlass_src_dir}']
-
         #
         # Setup parallelism and build tool
         #
